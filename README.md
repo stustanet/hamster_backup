@@ -15,7 +15,6 @@ neuen Host für Backups anlegen
 * cronjob oder Systemd-Timer  anlegen, der regelmäßig /etc/hamster_backups/hamster_backup.sh als root ausführt, 
 * /etc/cron.d/ssn_hamster_backup
 
-
 	#
 	#crontab for automatic hamster backup
 	#
@@ -24,9 +23,7 @@ neuen Host für Backups anlegen
 	00 05    *   *   3    root     /etc/hamster_backups/hamster_backup.sh
 	#
 
-
 * /etc/systemd/system/hamster_backup.timer
-
 
 	[Unit]
 	Description=Run hamster-Backup weekly
@@ -38,9 +35,7 @@ neuen Host für Backups anlegen
 	[Install]
 	WantedBy=timers.target
 
-
 * /etc/systemd/system/hamster_backup.service
-
 
 	[Unit]
 	Description=Backup Server to hamster
@@ -51,27 +46,20 @@ neuen Host für Backups anlegen
 	Type=oneshot
 	ExecStart=/etc/hamster_backups/hamster_backup.sh
 
-
 * Wenn der Systemd-Timer verwendet wird, das aktivieren nicht vergessen:
-
 
 	systemctl enable hamster_backup.timer
 
-
 * TSM deinstallieren, falls vorhanden:
 	
-	
 	sudo apt purge tivsm-api64 tivsm-ba gskcrypt64 gskssl64 gskcrypt32 gskssl32
-
 
 ### auf Hamster:
 
 * LV anlegen:
 
-
 	lvcreate -L 20G -n hostname-lv hamster-data-vg
 	mkfs.ext4 /dev/mapper/hamster--data--vg-hostname--lv
-
 
 * /etc/fstab anpassen
 * Mountverzeichnis /srv/backups/hostname anlegen
