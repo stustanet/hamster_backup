@@ -13,6 +13,7 @@ neuen Host für Backups anlegen
 * SSH-Key in /etc/hamster_backups/ erzeugen:
 * ssh-keygen -t rsa -b 4096 -f id_rsa_hamster
 * cronjob oder Systemd-Timer  anlegen, der regelmäßig /etc/hamster_backups/hamster_backup.sh als root ausführt, 
+
 /etc/cron.d/ssn_hamster_backup
 	#
 	#crontab for automatic hamster backup
