@@ -1,0 +1,10 @@
+/etc/ssh/ssh_host_*_key
+/etc/ssh/ssh_host_*_key.pub
+/etc/hamster_backups/id_*
+/dev/*
+/proc/*
+/sys/*
+/lib/init/rw/*
+/tmp/*
+/var/cache/*
+/var/log/*
