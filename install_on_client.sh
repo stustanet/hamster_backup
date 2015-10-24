@@ -42,3 +42,10 @@ systemctl enable hamster_backup.timer
 
 # TSM deinstallieren, falls vorhanden:
 apt purge tivsm-api64 tivsm-ba gskcrypt64 gskssl64 gskcrypt32 gskssl32
+
+# symlink to /etc/hamster_backup
+mkdir /etc/hamster_backups/
+ln -s /opt/hamster_backup/client/* /etc/hamster_backups/
+
+# become normal user again
+exit
